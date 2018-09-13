@@ -1,0 +1,430 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://gitcdn.link/repo/freeCodeCamp/testable-projects-fcc/master/build/bundle.js"> </script>
+	<title>CSS Technical Documentation Page</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+	<nav id="navbar">
+		<header>CSS Table of Contents</header>
+		<ul>
+			<a class="nav-link" href="#properties_values" rel="internal"><li>Properties & Values</li></a>
+
+			<a class="nav-link" href="#css_borders" rel="internal"><li>css borders</li></a>
+
+			<a class="nav-link" href="#flex" rel="internal"><li>Flex</li></a>
+
+			<a class="nav-link" href="#css_grid" rel="internal"><li>CSS Grid</li></a>
+
+			<a class="nav-link" href="#references" rel="internal"><li>References</li></a>
+		</ul>
+	</nav>
+
+
+	<main id="main-doc">
+		<section class="main-section" id="properties_values">
+		<header>Properties and Values</header>
+		<article>
+			<p>CSS has 415 unique properties.</p><br><p>You can verify this with a simple JavaScript code snipplet as follows:</p>
+			<ol>
+				<li>var element = document.createElement (" div");</li>
+				<li>var count =0;</li>
+				<li>for (index in element.style) p++;</li>
+				<li>console.log(p); // outputs 415 as of June 1st, 2018.</li>
+			</ol>
+
+			<p>There may be more or less in the future as new features are being added to
+the specication and old ones deprecate.
+A large number of CSS properties that are rarely in use (or still don't have full
+browser support across all major browsers) were skipped from the contents of
+this book. They would only create unneeded clutter.
+Instead, in this book we focused only on CSS properties that are in common
+use by web designers and developers today. A great deal of eort went into
+creation of CSS Grid and Flex diagrams in particular.</p>
+<br>
+<h2 id="Placement"> The Placement </h2>
+<p>CSS code can be saved in a separate, externalle and included as follows:</p>
+<code>
+	&lt;html&gt;
+		&lt;head&gt;
+			&lt;title&gt;welcome to my website&lt;/title&gt;
+			&lt;link rel="stylesheet" type="text/css" href="style.css"&gt;
+		&lt;head/&gt;
+		&lt;body&gt;CSS style instructions stored in "style.css" will be applied to this page&lt;/body&gt;
+	&lt;/html&gt;
+</code>
+<br>
+<p>Or you can type it directly into your HTML document between:</p>
+<code>
+	&lt;script type="text/css"&gt;here&lt;/script&gt;
+</code>
+<br>
+<h2 id="comments">Comments</h2>
+<p>CSS only supports "block comment" syntax for creating in-code comments.
+By surrounding a block of text or CSS code with /* comment */ symbols.</p>
+<code>
+	/* Set font color to white using Hexadecimal value */
+color: #FFFFFF;
+/* Set font color to white using short Hexadecimal value */
+color: #FFF;
+/* Set font color to white using named value */
+color: white;
+/* Set font color to white using an RGB value */
+color: rgb (255 ,255 ,255);
+/* Set font color to white using a CSS variable */
+color: var(--white-color);
+</code>
+<p>You can also comment out entire sections of CSS code to temporarily disable
+them for future use:</p>
+<code>
+	/
+ content: "hello";
+ border: 1px solid gray;
+ color: #FFFFFF;
+ /
+</code>
+<p>CSS does not support inline syntax // inline comments are not allowed
+or rather... have no eect on the browser's CSS interpreter. Other than they
+might confuse it a bit!</p>
+<br>
+<h2 id="css_variables">Variables</h2>
+<p>You can also use CSS variables to avoid redundancy when reusing the same
+values.</p>
+<code>
+/* definene variable -default-color */
+ element { --default-color: yellow }
+/* define variable {variable-name */
+ element { --variable-name: 100px ; }
+/* set background color to {default-color variable */
+ element { background-color: var(--default-color); }
+/* set width to 100px */
+ element { width: var(--variable-name); }
+</code>
+<h2 id="common">Common</h2>
+<p>Some of the most common CSS property and value combinations:</p>
+<code>
+	/* Set font color to white */
+color: #FFFFFF;
+/* Set background color to black */
+background-color: #000000;
+/* Create 1px-thick blue border around the element */
+border: 1px solid blue;
+</code>
+</article>
+</section>
+<br>
+<section class="main-section" id="css_borders">
+	<header>CSS Borders</header>
+	<article>
+		<h2 id="border_style">Border Style</h2>
+		<p>The border-style property specifies what kind of border to display.</p>
+		<p>The following values are allowed:</p>
+		<ul>
+			<li><span style="color: #ffdf80">dotted</span> - Defines a dotted border</li>
+			<li><span style="color: #ffdf80">dashed</span> - Defines a dashed border</li>
+			<li><span style="color: #ffdf80">solid </span> - Defines a solid border</li>
+			<li><span style="color: #ffdf80">double </span> - Defines a double border</li>
+			<li><span style="color: #ffdf80">groove </span> - Defines a 3D grooved border. The effect depends on the border-color value</li>
+			<li><span style="color: #ffdf80">ridge </span> - Defines a 3D ridged border. The effect depends on the border-color value</li>
+			<li><span style="color: #ffdf80">inset </span> -  Defines a 3D inset border. The effect depends on the border-color value</li>
+			<li><span style="color: #ffdf80">outset </span> - Defines a 3D outset border. The effect depends on the border-color value</li>
+			<li><span style="color: #ffdf80">none </span> - Defines no border</li>
+			<li><span style="color: #ffdf80">hidden </span> - Defines a hidden border</li>
+		</ul>
+		<p>The border-style property can have from one to four values (for the top border, right border, bottom border, and the left border).</p>
+			<code>
+				p.dotted {border-style: dotted;}
+				p.dashed {border-style: dashed;}
+				p.solid {border-style: solid;}
+				p.double {border-style: double;}
+				p.groove {border-style: groove;}
+				p.ridge {border-style: ridge;}
+				p.inset {border-style: inset;}
+				p.outset {border-style: outset;}
+				p.none {border-style: none;}
+				p.hidden {border-style: hidden;}
+				p.mix {border-style: dotted dashed solid double;}
+			</code>
+			<br>
+			<h2 id="Border_width">Border width</h2>
+			<p>The border-width property specifies the width of the four borders.</p>
+			<p>The width can be set as a specific size (in px, pt, cm, em, etc) or by using one of the three pre-defined values: thin, medium, or thick.</p>
+			<p>The border-width property can have from one to four values (for the top border, right border, bottom border, and the left border).</p>
+			<code>
+				p.one {
+						 border-style: solid;
+					     border-width: 5px;
+				}
+
+				p.two {
+			    		 border-style: solid;
+						 border-width: medium;
+				}
+
+				p.three {
+						 border-style: solid;
+						 border-width: 2px 10px 4px 20px;
+				}
+			</code>
+			<br>
+			<h2 id="border_color">Border Color</h2>
+			<p>The border-color property is used to set the color of the four borders.</p>
+			<p>The color can be set by:</p>
+			<ul>
+				<li>name - specify a color name, like "red"</li>
+				<li>Hex - specify a hex value, like "#ff0000"</li>
+				<li>RGB - specify a RGB value, like "rgb(255,0,0)"</li>
+				<li>transparent</li>
+			</ul>
+			<code>
+				p.one {
+   						 border-style: solid;
+    					 border-color: red;
+					}
+
+				p.two {
+   						 border-style: solid;
+   						 border-color: green;
+					}
+
+				p.three {
+						  border-style: solid;
+					      border-color: red green blue yellow;
+					}
+			</code>
+			<h2 id="border_individual_styles">Border Individual Styles</h2>
+			<p>From the examples above you have seen that it is possible to specify a different border for each side.</p>
+			<p>In CSS, there are also properties for specifying each of the borders (top, right, bottom, and left):</p>
+			<code>
+				p {
+				    border-top-style: dotted;
+				    border-right-style: solid;
+				    border-bottom-style: dotted;
+				    border-left-style: solid;
+				  }
+			</code>
+
+			<h2 id="border_shorthand_properties">Border Short-Hand Properties</h2>
+			<p>As you can see from the examples above, there are many properties to consider when dealing with borders.</p>
+			<p>To shorten the code, it is also possible to specify all the individual border properties in one property.</p>
+			<p>The border property is a shorthand property for the following individual border properties:</p>
+			<ul>
+				<li>border-width</li>
+				<li>border-style</li>
+				<li>border-color</li>
+			</ul>
+			<code>
+				p {
+    				border: 5px solid red;
+				  }
+			</code>
+			<h2 id="rounded_borders">Rounded Borders</h2>
+			<p>The border-radius property is used to add rounded borders to an element:</p>
+			<code>
+				p {
+				    border: 2px solid red;
+				    border-radius: 5px;
+				  }
+			</code>
+		</article>
+	</section>
+			<br>
+
+		<section class="main-section" id="flex">
+			<header>Flex</header>
+			<article>
+			<p>Flex is a set of rules for automatically stretching multiple columns and rows
+			of content across parent container.</p>
+			<p>The flex property is a shorthand property for:</p>
+			<ul>
+				<li>flex-grow</li>
+				<li>flex-shrink</li>
+				<li>flex-wrap</li>
+			</ul>
+			<h2 id="flex_grow">Flex Grow</h2>
+			<p>The flex-grow property specifies how much the item will grow relative to the rest of the flexible items inside the same container.</p>
+			<p>Let the second flex-item grow three times wider than the rest:</p>
+			<code>
+				 /* Safari 6.1+ */
+				div:nth-of-type(1) {-webkit-flex-grow: 1;}
+				div:nth-of-type(2) {-webkit-flex-grow: 3;}
+				div:nth-of-type(3) {-webkit-flex-grow: 1;}
+
+				/* Standard syntax */
+				div:nth-of-type(1) {flex-grow: 1;}
+				div:nth-of-type(2) {flex-grow: 3;}
+				div:nth-of-type(3) {flex-grow: 1;}
+			</code>
+			<h2 id="flex_shrink">Flex Shrink</h2>
+			<p>The flex-shrink property specifies how the item will shrink relative to the rest of the flexible items inside the same container.</p>
+			<p>Let the second flex-item shrink three times more than the rest:</p>
+			<code>
+				 /* Safari 6.1+ */
+				div:nth-of-type(2) {
+				    -webkit-flex-shrink: 3;
+				}
+
+				/* Standard syntax */
+				div:nth-of-type(2) {
+				    flex-shrink: 3;
+				}
+			</code>
+			<h2 id="flex_wrap">Flex Wrap</h2>
+			<p>The flex-wrap property specifies whether the flexible items should wrap or not.</p>
+			<p>Make the flexible items wrap if necessary:</p>
+			<code>
+				div {
+					    display: -webkit-flex; /* Safari */
+					    -webkit-flex-wrap: wrap; /* Safari 6.1+ */
+					    display: flex;
+					    flex-wrap: wrap;
+					}
+			</code>
+		</article>
+	</section>
+	<br>
+	<section class="main-section" id="css_grid">
+	<header>CSS Grid</header>
+	<article>
+		<p>The CSS Grid Layout Module offers a grid-based layout system, with rows and columns, making it easier to design web pages without having to use floats and positioning.</p>
+		<h2 id="grid_elements">Grid Elements</h2>
+		<p>A grid layout consists of a parent element, with one or more child elements.
+		</p>
+		<code>
+			 &lt;div&gt;class="grid-container"
+			  &lt;div&gt;class="grid-item"1&lt;
+			  &lt;div&gt;class="grid-item"2&lt;/div&gt;
+			  &lt;div&gt;class="grid-item"3&lt;/div&gt;
+			  &lt;div&gt;class="grid-item"4&lt;/div&gt;
+			  &lt;div&gt;class="grid-item"5&lt;/div&gt;
+			  &lt;div&gt;class="grid-item"6&lt;/div&gt;
+			  &lt;div&gt;class="grid-item"7&lt;/div&gt;
+			  &lt;div&gt;class="grid-item"8&lt;/div&gt;
+			  &lt;div&gt;class="grid-item"9&lt;/div&gt;
+			&lt;/div&gt;
+		</code>
+		<h2 id="display_property">Display Property</h2>
+		<p>An HTML element becomes a grid container by setting the display property to grid or inline-grid.</p>
+		<code>
+			.grid-container {
+ 							 display: grid;
+							}
+		</code>
+		<br>
+		<code>
+			.grid-container {
+  							display: inline-grid;
+							}
+		</code>
+		<h2 id="grid_container">Grid Container</h2>
+		<p>To make an HTML element behave as a grid container, you have to set the display property to grid or inline-grid.Grid containers consist of grid items, placed inside columns and rows.</p>
+		<h3 id="The_grid_template_columns_Property">The grid-template-columns Property</h3>
+		<p>The grid-template-columns property defines the number of columns in your grid layout, and it can define the width of each column.The value is a space-separated-list, where each value defines the length of the respective column.If you want your grid layout to contain 4 columns, specify the width of the 4 columns, or "auto" if all columns should have the same width.</p>
+		<code>
+			.grid-container {
+						  display: grid;
+						  grid-template-columns: auto auto auto auto;
+							}
+		</code>
+		<p>The grid-template-columns property can also be used to specify the size (width) of the columns.</p>
+		<code>
+			.grid-container {
+					  display: grid;
+					  grid-template-columns: 80px 200px auto 40px;
+				}
+		</code>
+		<h2 id="The_justify_content_Property">The justify-content Property</h2>
+		<p>The justify-content property is used to align the whole grid inside the container.</p>
+		<code>
+			.grid-container {
+					  display: grid;
+					  justify-content: space-evenly;
+					}
+		</code>
+
+		<h2 id="css_grid_item">CSS Grid Item</h2>
+		<p>A grid container contains grid items.By default, a container has one grid item for each column, in each row, but you can style the grid items so that they will span multiple columns and/or rows.</p>
+		<h2 id="the_grid_row_property">The Grid Row Property</h2>
+		<p>The grid-row property defines on which row to place an item.You define where the item will start, and where the item will end.</p>
+		<p>Make "item1" start on row-line 1 and end on row-line 4:</p>
+		<code>
+			.item1 {
+ 					 grid-row: 1 / 4;
+				}
+		</code>
+		<p>Make "item1" start on row 1 and span 2 rows:</p>
+		<code>
+			.item1 {
+ 					 grid-row: 1 / span 2;
+				}
+		</code>
+		<h2 id="the_grid_area_property">The Grid Area Property</h2>
+		<p>The grid-area property can be used as a shorthand property for the grid-row-start, grid-column-start, grid-row-end and the grid-column-end properties.</p>
+		<p>Make "item8" start on row-line 1 and column-line 2, and end on row-line 5 and column line 6:</p>
+		<code>
+			.item1 {
+ 				 grid-area: 1 / 2 / 5 / 6;
+			}
+		</code>
+		<p>Make "item8" start on row-line 2 and column-line 1, and span 2 rows and 3 columns:</p>
+		<code>
+			.item1 {
+  					grid-area: 2 / 1 / span 2 / span 3;
+				}
+		</code>
+		<h2 id="naming_grid_area">Naming Grid Area</h2>
+		<p>The grid-area property can also be used to assign names to grid items.</p>
+		<p>Item1 gets the name "myArea" and spans all five columns in a five columns grid layout:</p>
+		<code>
+			.item1 {
+			  			grid-area: myArea;
+					}
+						.grid-container {
+			  			grid-template-areas: 'myArea myArea myArea myArea myArea';
+				}
+		</code>
+		<p>Each row is defined by apostrophes (' ')The columns in each row is defined inside the apostrophes, separated by a space.</p>
+		<h2 id="the_order_of_items">The Order Of Items</h2>
+		<p>The Grid Layout allows us to position the items anywhere we like.</p>
+		<code>
+			.item1 { grid-area: 1 / 3 / 2 / 4; }
+			.item2 { grid-area: 2 / 3 / 3 / 4; }
+			.item3 { grid-area: 1 / 1 / 2 / 2; }
+			.item4 { grid-area: 1 / 2 / 2 / 3; }
+			.item5 { grid-area: 2 / 1 / 3 / 2; }
+			.item6 { grid-area: 2 / 2 / 3 / 3; }
+		</code>
+		<p>You can re-arrange the order for certain screen sizes, by using media queries:</p>
+		<code>
+			@media only screen and (max-width: 500px) {
+		  .item1 { grid-area: 1 / span 3 / 2 / 4; }
+		  .item2 { grid-area: 3 / 3 / 3 / 4; }
+		  .item3 { grid-area: 2 / 1 / 2 / 2; }
+		  .item4 { grid-area: 2 / 2 / span 2 / 3; }
+		  .item5 { grid-area: 3 / 1 / 3 / 2; }
+		  .item6 { grid-area: 2 / 3 / 2 / 4; }
+		}
+		</code>
+
+		</article>
+	</section>
+<br>
+<section class="main-section" id="references">
+	<header>References</header>
+	<article>
+		<ol>
+			<li><a class="source" href="https://www.w3schools.com/" target="_blank">W3schoolwebsite</a> - Retrieved 2018-04-02.</li>
+			<li><a class="source" href="https://www.amazon.com/gp/product/B07DQMNHF5/ref=dbs_a_def_rwt_hsch_vapi_tkin_p1_i0" target="_blank">CSS Visual Dictionary</a> Greg Sidelnikov</li>
+		</ol>
+			</article>
+		</section>
+	</main>
+</body>
+
+<footer>&copy; 2018 Designed & Coded By:<a href="https://twitter.com/done2stay"><span style="color: #ffdf80"> deji adesoga</span></a></footer>
+
+</body>
+</html>

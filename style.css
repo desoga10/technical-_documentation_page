@@ -1,0 +1,164 @@
+<style>
+
+
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+html, body {
+  font-family: 'Lato', Arial, sans-serif;
+  background-color: #3d5c5c;
+  color: #000d1a;
+  line-height: 1.3;
+}
+
+#navbar {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 323px;
+  height: 100%;
+  border: 2px solid #ffdf80;
+  overflow-y: scroll;
+  border-radius: 40px;
+}
+
+header {
+  font-size: 31px;
+  margin: 7px;
+  text-align: center;
+  color: #ffdf80;
+}
+
+.nav-link {
+  padding: 3px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#navbar li {
+  color: #ffdf80;
+  border: 1px solid;
+  padding: 12px;
+  margin: 10px;
+  list-style: none;
+  position: relative;
+  right: 17px;
+  border-radius: 10px;
+  text-align: center;
+}
+#main-doc {
+  position: absolute;
+  margin-left: 311px;
+  margin-bottom: 109px;
+  padding: 23px;
+}
+#main-doc header {
+  text-align: center;
+  margin: auto;
+  margin-top: 37px;
+}
+#main-doc a {
+  font-weight: bold;
+  color: white;
+}
+
+
+.main-section {
+  margin: 17px;
+}
+
+
+p {
+  margin-left: 23px;
+  width: 80%;
+  max-width: 100%;
+  text-align: justify;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+h2{
+	color: #cc6666;
+}
+
+section li {
+  margin: 17px 0px 0px 23px;
+}
+
+
+code {
+  display: block;
+  background-color: black;
+  color: #ffcc33;
+  text-align: left;
+  white-space: pre-wrap;
+  position: relative;
+  word-break: normal;
+  width: 79%;
+  max-width: 100%;
+  line-height: 2;
+  padding: 13px;
+  margin: 11px;
+  margin-left: 23px;
+  border-radius: 10px;
+}
+
+footer {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  text-align: left;
+  padding: 3px;
+}
+@media only screen and (max-width: 736px) {
+  #navbar ul {
+    height: 207px;
+  }
+  #navbar {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    max-height: 275px;
+    border: none;
+    z-index: 1;
+    border-bottom: 3px solid white;
+  }
+  #main-doc {
+    position: relative;
+    margin-left: 0px;
+    margin-top: 270px;
+  }
+
+  footer {
+    position: relative;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 3px;
+  }
+
+@media only screen
+  and (max-device-width: 400px) {
+  #main-doc {
+    margin-left: -10px;
+  }
+  code {
+    font-size: .75em;
+    margin-left: -20px;
+    max-width: 100%;
+    padding: 15px 45px 15px 10px;
+    min-width: 233px;
+  }
+  footer {
+    padding: 3px;
+  }
+}
+
+</style>
+
